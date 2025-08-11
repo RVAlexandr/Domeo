@@ -1,0 +1,12 @@
+:root {
+    --color-background: #171D25;
+    --color-text-lightgray: #A9B7CA;
+    --color-text-darkgray: #60738C;
+
+    --card-size-width: 349px;
+}
+
+body{
+    background: var(--color-background);
+    margin: 0;
+}
