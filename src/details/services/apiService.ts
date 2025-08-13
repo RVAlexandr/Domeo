@@ -3,6 +3,7 @@ import { objectId } from './globals.ts';
 import { ObjectData } from '../models/objectData.ts';
 import { ClientInfo } from '../models/clientInfo.ts';
 import { FlatInfo } from '../models/flatInfo.ts';
+import { Tag } from '../models/tag.ts';
 
 export const getObjectById = async () => {
   try {
@@ -28,7 +29,7 @@ export const getObjectById = async () => {
       data.cashout,
       data.status,
       data.money_type,
-      data.tags,
+      convertToTags(data.tags),
     );
     return objectInstance;
   } catch (e) {
@@ -36,6 +37,10 @@ export const getObjectById = async () => {
   }
   return null;
 };
+
+function convertToTags(responseData: any[]): Tag[] {
+  return responseData.map((obj) => new Tag(obj.message, obj.type));
+}
 
 export const pageNumber = ref(1);
 export const perPage = ref(24);

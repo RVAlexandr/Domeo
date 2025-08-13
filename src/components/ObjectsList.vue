@@ -81,25 +81,29 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <div>
+  <div class="header">
     <h1>Объекты</h1>
   </div>
   <div
     v-if="isLoaded"
-    ref="scrollContainer"
     class="container"
-    @scroll="onScroll"
   >
-    <ObjectCard
-      v-for="getObject in objectsList"
-      :key="getObject.id"
-      :object-id="getObject.id"
-      :address="getObject.address"
-      :name="getName(getObject.client_info)"
-      :cash-out="getObject.cashout"
-      :money-type="getObject.money_type"
-      @open-object="showDetails"
-    />
+    <div
+      ref="scrollContainer"
+      class="scrollingContainer"
+      @scroll="onScroll"
+    >
+      <ObjectCard
+        v-for="getObject in objectsList"
+        :key="getObject.id"
+        :object-id="getObject.id"
+        :address="getObject.address"
+        :name="getName(getObject.client_info)"
+        :cash-out="getObject.cashout"
+        :money-type="getObject.money_type"
+        @open-object="showDetails"
+      />
+    </div>
     <div
       ref="infiniteScrollTrigger"
       class="scrollTriger"
@@ -120,28 +124,41 @@ onBeforeUnmount(() => {
 h1{
   text-align: center;
   color: white;
-  font-size: 24px;
-  line-height: 44px;
+  font-size: 25px;
+  line-height: 50px;
 }
-
+.header{
+  min-height: 84px;
+}
 .container{
   position: absolute;
   right: 0;
   left: 0;
   bottom: 0;
-  height: 85%;
+  height: 91%;
   background: white;
-  border-radius: 40px;
+  border-radius: 25.5px;
+}
+.scrollingContainer{
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  margin: 30px 20px 20px 20px;
   padding: 20px;
+  gap: 10px;
+  background-color: var(--color-light-background);
+  border-radius: 10px;
+  border: 1px solid var(--color-light-background);
   overflow-y: auto;
   display: grid;
   grid-template-columns: repeat(auto-fill, var(--card-size-width));
-  grid-row-gap: .2em;
+  grid-row-gap: 10px;
   grid-column-gap: 1em;
 }
 .scrollTriger{
   width: 100%;
- height: 10px;
-  background-color: #171D25;
+  height: 10px;
 }
 </style>

@@ -1,12 +1,18 @@
 :root {
-    --color-background: #171D25;
+    --color-main-black: #171D25;
     --color-text-lightgray: #A9B7CA;
     --color-text-darkgray: #60738C;
+    --color-text-gray: #8796AA;
+
+    --color-button-text-gray: #788596;
+    --color-button-background: #DDE2EB;
+    --color-light-background: #D3DCE7;
+    --color-gray-background: #F4F6F8;
 
     --card-size-width: 349px;
 }
 
 body{
-    background: var(--color-background);
+    background: var(--color-main-black);
     margin: 0;
 }

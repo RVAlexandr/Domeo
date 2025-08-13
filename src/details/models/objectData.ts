@@ -1,5 +1,6 @@
 import {ClientInfo} from "@/details/models/clientInfo";
 import {FlatInfo} from "@/details/models/flatInfo";
+import {Tag} from "@/details/models/tag.ts";
 
 export class ObjectData {
     id: number;
@@ -14,7 +15,7 @@ export class ObjectData {
 
     moneyType: number;
 
-    tags:[];
+    tags:Tag[];
 
     constructor(
         id2: number,
@@ -23,7 +24,7 @@ export class ObjectData {
         cashOut: number,
         status: number,
         moneyType: number,
-        tags: [],
+        tags: Tag[],
     ) {
         this.id = id2;
         this.clientInfo = clientInfo;

@@ -34,22 +34,29 @@ function getMoneyType(object: any, row: number):string {
 
 <template>
   <div class="card">
-    <div class="idTitle">
+    <div
+      class="idTitle"
+    >
       {{ "ID " + objectId }}
     </div>
 
-    <div class="cardTitle">
-      Адрес:
-    </div>
-    <div class="cardValue">
-      {{ address }}
-    </div>
-
-    <div class="cardTitle">
-      Клиент:
-    </div>
-    <div class="cardValue">
-      {{ name }}
+    <div class="cardBody">
+      <div>
+        <div class="cardTitle">
+          Адрес:
+        </div>
+        <div class="cardValue">
+          {{ address }}
+        </div>
+      </div>
+      <div>
+        <div class="cardTitle">
+          Клиент:
+        </div>
+        <div class="cardValue">
+          {{ name }}
+        </div>
+      </div>
     </div>
 
     <div class="hContainer">
@@ -94,38 +101,52 @@ function getMoneyType(object: any, row: number):string {
 </template>
 
 <style scoped>
+@import '../assets/styles.css';
 .card{
-  width: var(--card-size-width);
-  height: 200px;
+  width: 318px;
+  height: 220px;
   border-radius: 12px;
   padding: 16px;
   gap: 12px;
   background: white;
-
   display: flex;
   flex-direction: column;
   align-items: stretch;
 }
 
+.cardBody{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
 .idTitle{
-  color: var(--color-background);
-  font-size: 15px;
+  color: var(--color-main-black);
+  font-size: 15.5px;
+  line-height: 20px;
+  font-family: SFProDisplay, sans-serif;
 }
 
 .cardTitle{
   color: var(--color-text-lightgray);
   font-size: 12px;
+  line-height: 16px;
 }
 
 .cardValue{
   color: var(--color-text-darkgray);
   font-size: 14px;
+  line-height: 20px;
   height: 1lh;
+  overflow: hidden;
 }
 
 .hContainer{
   display: flex;
   flex-direction: row;
+  padding: 8px 12px 8px 12px;
+  border-radius: 8px;
+  background-color: var(--color-light-background);
 }
 
 .vCon{
@@ -134,15 +155,15 @@ function getMoneyType(object: any, row: number):string {
 
 .transparent-button {
   display: flex;
-  width: 100%;
+  width: 317px;
   height: 36px;
   background-color: transparent;
-  border: none;
+  border: 1px solid var(--color-button-background);
+  border-radius: 8px;
   justify-content: center;
   color: #616161;
   font-size: 14px;
   padding: 10px 20px;
-  border-radius: 8px;
   transition: background-color 0.3s ease-in-out;
 }
 
